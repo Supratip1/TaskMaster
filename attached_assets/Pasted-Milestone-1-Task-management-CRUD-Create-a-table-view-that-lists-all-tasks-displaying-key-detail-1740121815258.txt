@@ -1,0 +1,139 @@
+Milestone 1: Task management (CRUD)
+Create a table view that lists all tasks, displaying key details such as the task title, priority, and status.
+
+Find mock tasks data here: https://gist.github.com/yangshun/7acbe005af922e43a26dea8109e16aed
+Milestone 2: Managing tasks
+Provide a mechanism for users to create, edit and delete the tasks.
+Creating tasks
+Provide a mechanism for users to create new tasks using a modal or slideout panel.
+Include a clear "Create task" button in the main interface that opens a modal/slideout upon being triggered
+Modal/Slideout content:
+Form Fields:
+Title: Text input (required)
+Priority: Dropdown or radio buttons for selecting priority
+Status: Dropdown or radio buttons for selecting status
+Actions:
+Save/Submit Button: Validates the form and adds the task to the table
+Cancel/Close Button: Closes the modal without saving changes
+
+
+Editing tasks
+Allow users to modify or remove existing tasks either inline or through a modal/slideout interface.
+Inline Editing:
+Enable fields in the table to become editable when a user clicks an "Edit" button or icon.
+Validate and save changes immediately.
+Modal/Slideout editing:
+Alternatively, re-use the "Create task" modal/slideout for editing, pre-populating it with the task’s current data.
+Deleting tasks
+Allow users to delete tasks.
+Add a delete button/icon for each task. Deleted tasks should not be shown in the list
+Follow UX good practices for destructive actions
+Milestone 3: Filtering and sorting
+Sorting
+Allow users to click on column headers to sort the list by that column
+Indicate sort direction (ascending/descending) with icons or visual cues
+Filtering
+Provide input controls directly in the table header or above the table:
+Text filtering: For the task title
+Dropdown or Toggle: For filtering based on priority or status
+
+Sorting and filtering should work seamlessly together (e.g., filtering should respect the current sort order and vice versa).
+Milestone 4: Pagination
+Implement pagination to manage large sets of tasks and improve performance.
+
+Show a limited number of tasks per page (e.g., 10 / 20 / 50 tasks)
+Include controls for navigating between pages (e.g., next, previous, or page numbers)
+Clearly indicate the current page
+Allow page size to be changed
+
+Note: This pagination requirement deviates from Notion, Asana, and Linear which use infinite scrolling and do not have the concept of pages
+Milestone 5: Local persistence
+Persist the tasks data locally in the browser so that it remains available across page reloads.
+Reading data: On application load, read the tasks from localStorage and initialize the state
+Writing data: After each CRUD operation (create, update, delete), update localStorage accordingly
+Milestone 6: Custom fields
+Implement a custom fields editor that allows users to dynamically modify the structure of a task by adding or removing fields. The allowed field types are text, number, and checkbox.
+UI for custom fields
+Provide an interface (a dedicated modal/slideout or an inline section) where users can manage the custom fields
+Include options to add a new field by specifying:
+Field name: The label to display in the table
+Field type: Selection among text, number, or checkbox
+Allow users to remove a custom field. The title, priority, and status cannot be removed
+Dynamic table display
+When a new column is added, update the table view to include this column for all tasks
+Users should be able to sort and filter by these new fields/columns
+Ensure that tasks without data for the new field display a default value or an empty state
+
+Notes:
+Custom fields is feature supported in Asana and Notion
+The schema editor itself should be dynamic, updating both the UI and the data model in real-time
+Validate new field inputs to prevent duplicate field names or unsupported characters
+Ensure that changes to the schema do not break existing features like sorting, filtering, and editing
+
+
+
+
+Bonus milestones (Optional)
+Completing the following milestones is entirely optional but is highly recommended in order to stand out from the other submissions. You are allowed to complete parts of the optional milestones.
+
+You are welcome to propose your own bonus milestones, just remember to mention them in the README.
+Milestone 7: Animations and transitions
+Difficulty: Easy
+Enhance the user experience with subtle animations for adding, updating, or deleting tasks.
+Milestone 8: Undo/redo functionality
+Difficulty: Medium
+Implement an undo/redo mechanism that allows users to reverse or reapply recent changes, such as task additions, edits, deletions, or schema modifications.
+
+Undo/redo buttons can be added to a toolbar at the top or done with keyboard shortcuts.
+Milestone 9: Multiselect for bulk actions
+Difficulty: Medium
+Allow users to select multiple tasks at once to perform bulk operations such as changing a common field (e.g., updating status or priority) or deleting several tasks at once.
+
+Selection mechanism:
+Checkboxes: Add checkboxes next to each task (both in the table view and Kanban view) to enable multi-selection
+Select all option: Provide a "Select All" checkbox in the table header or a similar mechanism in the Kanban view
+Bulk operations:
+Bulk edit: Allow users to change a particular field (e.g., priority or status) for all selected tasks
+Bulk deletion: Enable a bulk delete action with a confirmation prompt to avoid accidental data loss
+Visual cues: Highlight selected tasks and display a count of selected items
+
+Milestone 10: Kanban view
+Difficulty: Hard
+The core milestones display the tasks in a Table view. Provide an alternative view of tasks in a Kanban-style board, where each column represents a task priority (e.g., High, Medium, Low). Within each column, allow re-ordering of tasks.
+Kanban board layout:
+Columns: Create columns for each task priority level
+Task cards: Represent each task as a card that displays essential details (e.g., title, status, etc.). Custom fields need not be displayed
+Ordering within columns:
+Manual sorting: Allow users to drag and drop task cards to reorder them within the same column.
+Visual feedback: Provide animations or highlighting to indicate where the task card will be dropped.
+Persistence: Ensure that the new order is saved and maintained (update local state and persist to localStorage if applicable)
+Sorting and filtering:
+Filtering: Allow sorting all tasks within each column on a specific fields
+Filtering: Filter the displayed tasks on certain fields
+Inline task creation:
+Column-specific "Add Button": Provide a "Create task" button or inline form at the bottom/top of each column.
+Predefined priority: When a task is added from within a column, pre-populate or automatically set the task’s priority based on the column.
+
+Note: Ensure that sorting in Kanban does not conflict with other features on the Table view, like filtering, sorting or pagination.
+Evaluation rubrics
+Below are brief descriptions for each evaluation rubric category that we will be using to assess the submissions:
+Functionality & requirements: Whether the application fulfills all the core and optional features as defined by the assignment.
+Core features: Are all mandatory functions (like task listing, adding tasks, sorting/filtering, pagination, editing/deleting tasks, persistence with localStorage, and schema editing) implemented and working as expected?
+Optional enhancements: Have any bonus features (e.g., undo/redo, Kanban view, bulk operations) been added, and do they integrate seamlessly?
+Code quality: This measures how well the code is written, organized, and maintained.
+Clean & modular: Is the code structured into reusable, well-separated components or modules?
+Documentation & comments: Are complex or non-obvious parts of the code well-documented with comments and/or external documentation?
+Adherence to best practices: Does the implementation follow industry standards and best practices (e.g., naming conventions, DRY principles, effective state management) for the chosen technology stack?
+User Experience: How intuitive and user-friendly the application is.
+Intuitive navigation: Is the interface easy to navigate, with logical placement of buttons and actions?
+Responsive feedback: Does the application provide immediate and clear feedback for user actions (e.g., confirmations on add, edit, delete)?
+Consistency: Are design patterns and interactions consistent throughout the application, enhancing learnability and usability?
+Product quality: This focuses on the visual refinement and overall finish of the application.
+Visual design: Is the UI modern and aesthetically pleasing, with a consistent color scheme, typography, and layout?
+Transitions & animations: Are subtle animations or transitions used to enhance the experience without distracting the user?
+State handling & edge cases: Are error messages, loading states, and empty states well-handled and stylistically integrated into the overall design?
+Accessibility: This assesses the degree to which the application is usable by people with disabilities.
+Semantic markup & ARIA: Is the HTML semantic, using proper elements (e.g., <th>, <button>, <form>) and ARIA roles to support assistive technologies?
+Keyboard navigation: Can users interact with all interactive elements (modals, buttons, forms) via keyboard without issues?
+Contrast & responsiveness: Does the design adhere to WCAG guidelines regarding color contrast and is it optimized for various devices and screen sizes?
+Assistive feedback: Are labels, error messages, and instructions provided in a clear, descriptive manner for screen reader users?

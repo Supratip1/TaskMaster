@@ -1,0 +1,133 @@
+I need you to build a high-quality Task Management App for the GreatFrontEnd take-home assignment. This must be a well-designed, highly usable, and accessible application. Follow strict rules, best practices, and UX/UI guidelines to create a modern, intuitive, and responsive UI."
+
+🔴 DO NOTs (Strict Rules - MUST FOLLOW)
+❌ No Table Libraries – Do NOT use TanStack Table, React Table, AG Grid, or similar. Sorting, filtering, and pagination must be manually implemented.
+❌ No AI-Generated Full Components – Do NOT use AI-generated full UI components or entire files. Small code snippets are fine.
+❌ No Cloning of Existing UIs – Take inspiration from Notion, Asana, and Linear, but do NOT copy their designs exactly. Create an original, well-structured UI.
+❌ No Infinite Scrolling – The app must use pagination, not infinite scrolling.
+❌ No External Backend – All task data must be persisted in localStorage and managed in state.
+❌ No Poor Accessibility Practices – The app must be keyboard navigable, follow ARIA roles, and be color contrast compliant (WCAG AA+).
+
+📌 UX/UI Guidelines for a Best-in-Class Experience
+🚀 Modern UI Design Principles
+✅ Clean, minimal layout inspired by modern task apps.
+✅ Use consistent spacing, typography, and colors.
+✅ Subtle hover/focus effects for interactive elements.
+
+🎨 Typography & Colors
+✅ Use a well-structured font hierarchy (e.g., bold for task titles, medium for metadata).
+✅ Maintain high contrast for text against the background for readability.
+✅ Implement color-coded priorities (e.g., red for high priority, green for done tasks).
+
+🖥️ Responsive & Fluid Design
+✅ Ensure full mobile, tablet, and desktop responsiveness using Tailwind CSS.
+✅ Table should adapt to small screens with a collapsible card layout.
+
+♿ Accessibility & Interaction Design
+✅ All interactions must be keyboard accessible (e.g., modals can be opened/closed with Enter/Escape).
+✅ Buttons should have proper ARIA labels for screen readers.
+✅ Provide user feedback (loading states, error handling, visual cues).
+✅ Click & hover states should be clear and animated for smooth transitions.
+
+🛠 Step-by-Step Implementation for Milestones 1-4
+📌 Milestone 1: Task Management UI (Read-Only Table)
+🔹 Step 1: Set Up Project
+✅ Initialize a Next.js app (TypeScript) with Tailwind CSS.
+✅ Set up Redux Toolkit/Zustand for state management.
+
+🔹 Step 2: Define Task Data Model
+
+ts
+Copy
+Edit
+type Task = {
+  id: string;
+  title: string;
+  priority: "High" | "Medium" | "Low";
+  status: "Todo" | "In Progress" | "Done";
+  createdAt: string;
+};
+✅ Load mock tasks from localStorage or the provided JSON data.
+
+🔹 Step 3: Build Read-Only Task Table
+✅ Display tasks in a visually appealing, accessible table with:
+
+Task title, priority, status, and createdAt columns.
+Color-coded priorities (Red = High, Yellow = Medium, Green = Low).
+Status badges (Todo = Blue, In Progress = Orange, Done = Green).
+✅ UX Considerations:
+
+Alternating row colors for better readability.
+Table headers remain fixed for long lists.
+Empty state message when no tasks exist.
+📌 Milestone 2: Task Management (Create, Edit, Delete)
+🔹 Step 4: Implement Task Creation (Modal/Slideout)
+✅ Create a floating “+ New Task” button in the UI.
+✅ When clicked, open a beautiful modal/slideout with:
+
+A clear title ("Create New Task").
+Input fields:
+Title (required) – Text input.
+Priority – Dropdown/radio buttons with color coding.
+Status – Dropdown/radio buttons.
+✅ Save Button (Validates and adds task).
+✅ Cancel Button (Closes without saving).
+✅ Persist task to Redux/Zustand and localStorage.
+✅ UX Considerations:
+
+Form fields should have clear labels, inline validation, and tooltips.
+Use smooth fade-in animations for modals.
+Provide focus states for input fields for better usability.
+🔹 Step 5: Implement Task Editing
+✅ Add an "Edit" button on each task row.
+✅ Clicking it should allow:
+
+Inline editing (clicking a field makes it editable).
+OR open the modal pre-filled with existing data.
+✅ Persist updates to Redux/Zustand & localStorage.
+✅ UX Considerations:
+
+Show real-time feedback (e.g., a small “Saved” indicator).
+Animated field transitions for inline editing.
+🔹 Step 6: Implement Task Deletion
+✅ Add a trash icon button next to each task.
+✅ Show a confirmation dialog before deletion.
+✅ Remove the task from Redux/Zustand & localStorage.
+
+✅ UX Considerations:
+
+Smooth fade-out animations when a task is deleted.
+Keyboard accessible (Enter to confirm, Escape to cancel).
+📌 Milestone 3: Sorting & Filtering
+🔹 Step 7: Implement Sorting
+✅ Allow sorting by Title, Priority, Status, Date.
+✅ Clicking a column header toggles ascending/descending order.
+✅ Show clear sort indicators (▲▼ icons).
+
+✅ UX Considerations:
+
+Keep sorting snappy and smooth.
+Sort state should persist across page refreshes.
+🔹 Step 8: Implement Filtering
+✅ Add a search bar for filtering tasks by title.
+✅ Add dropdowns for filtering by Priority & Status.
+✅ Filtering should work with sorting seamlessly.
+
+✅ UX Considerations:
+
+Real-time updates (instant feedback as user types/selects).
+Filter states should be visually highlighted.
+Use subtle animations when updating filters.
+📌 Milestone 4: Pagination
+🔹 Step 9: Implement Pagination (NOT Infinite Scroll)
+✅ Show 10 tasks per page by default.
+✅ Provide pagination controls:
+
+Previous / Next buttons.
+Page numbers with current page highlighted.
+✅ Allow users to change page size (10, 20, 50 tasks).
+✅ UX Considerations:
+
+Pagination should be keyboard accessible (← / → keys).
+Page transitions should be smooth, not jarring.
+Show loading indicators if switching pages is slow.

@@ -1,0 +1,64 @@
+💡 "We have successfully implemented core functionalities (task list, CRUD, sorting, filtering, pagination). Now, let's complete the remaining milestones, ensuring best practices, accessibility, and UX refinements."
+
+🔴 DO NOTs (Strict Rules - Must Follow)
+❌ No External Backend – Persist data using localStorage, do not use an external database.
+❌ No AI-Generated Full Components – Code must be modular, structured, and manually written.
+❌ No Table Libraries – Sorting, filtering, pagination must remain manually implemented.
+❌ No Poor Accessibility Practices – Ensure full keyboard support, ARIA roles, and high contrast UI.
+
+📌 Milestone 5: Local Persistence (Save Tasks to LocalStorage)
+1️⃣ Implement Persistent Data Storage
+✅ Ensure tasks are saved to localStorage after every CRUD operation.
+✅ On app load, retrieve tasks from localStorage and update the state.
+✅ If localStorage is empty, initialize with an empty array or mock data.
+
+2️⃣ Handle Edge Cases
+✅ If a task is deleted, ensure it is also removed from localStorage.
+✅ If data becomes corrupted (e.g., invalid JSON), reset storage and show an error message.
+
+✅ UX Considerations:
+
+Show a loading indicator when retrieving tasks.
+Display a toast notification ("Task saved!" or "Task deleted!") for better feedback.
+📌 Milestone 6: Dynamic Custom Fields
+3️⃣ Add Custom Field Editor
+✅ Users should be able to add/remove custom fields dynamically.
+✅ Allowed field types:
+
+Text (string input)
+Number (numeric input)
+Checkbox (boolean toggle)
+✅ Provide an "Add Custom Field" button inside settings/modal.
+4️⃣ Store Custom Fields in LocalStorage
+✅ When a new field is added, update all tasks with that field (default to empty).
+✅ Ensure removing a field updates all tasks and doesn’t break existing functionality.
+
+5️⃣ Display Custom Fields in Task Table
+✅ Once added, the custom fields should appear as new table columns.
+✅ Ensure sorting/filtering works with custom fields.
+
+✅ UX Considerations:
+
+Prevent users from adding duplicate field names.
+Ensure empty custom fields show placeholders (e.g., "—").
+🎯 Next Steps After Core Milestones (Bonus Features)
+After Milestones 5-6, we will implement bonus features to improve UX and add advanced functionality.
+
+📌 Milestone 7: Animations & Transitions
+✅ Add smooth fade-in/fade-out animations for task additions & deletions.
+✅ Ensure modals and dropdowns have soft transitions for better UX.
+
+📌 Milestone 8: Undo/Redo Functionality
+✅ Implement an Undo button to reverse the last action (add, delete, edit).
+✅ Implement Redo functionality to restore the undone action.
+✅ Store undo/redo history in state (up to the last 10 actions).
+
+📌 Milestone 9: Bulk Actions
+✅ Add checkbox selection for multiple tasks.
+✅ Enable bulk delete with a confirmation dialog.
+✅ Implement bulk edit (e.g., change status for all selected tasks).
+
+📌 Milestone 10: Kanban View
+✅ Add Kanban board layout (columns for "Todo," "In Progress," "Done").
+✅ Enable drag-and-drop reordering of tasks within columns.
+✅ Ensure Kanban updates persist in localStorage.
